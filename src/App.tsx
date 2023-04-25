@@ -1,25 +1,20 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import About from './About';
+import { Route,Switch } from 'react-router-dom';
+import ComponentB from './ComponentB';
+import ComponentC from './ComponentC';
+import ParentClass from './ParentClass';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <Switch>
+    <Route exact path={'/lol'} component={About} ></Route>
+    <Route exact path={'/a/:name'} component={ComponentB} ></Route>
+    <Route exact path={'/c'} component={ComponentC} ></Route>
+    <Route path={'/classBased'} component={ParentClass} ></Route>
+  </Switch>
   );
 }
 
